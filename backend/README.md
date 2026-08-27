@@ -14,6 +14,12 @@ This is the backend service for the EdTech School Quiz platform, built with **Py
 
 ---
 
+## 🚀 Live Backend
+
+🔗 **[View Backend on Render](https://edtech-school-quiz.onrender.com)**
+
+---
+
 ## Project Structure
 
 ```text
