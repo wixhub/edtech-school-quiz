@@ -1,0 +1,35 @@
+/* ================================================================= *
+ * Global Root Styles & CSS Variables for EdTech School Quiz           *
+ * ================================================================= */
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+  --card-bg: #ffffff;
+  --question-bg: #fdfbf7;
+  --text-main: #2f3542;
+  --text-muted: #57606f;
+  --accent-red: #ff4757;
+  --accent-yellow: #ffcc00;
+  --accent-green: #2ed573;
+  --accent-blue: #70a1ff;
+  --border-radius-lg: 25px;
+  --border-radius-md: 18px;
+  --border-radius-sm: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--primary-gradient);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-font-smoothing: antialiased;
+}
