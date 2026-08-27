@@ -10,6 +10,12 @@ While the codebase, architecture, documentation and developer comments are writt
 
 ---
 
+## 🚀 Live Demo
+
+🔗 **[View Live Application on Cloudflare Pages](https://edtech-quiz.pages.dev)**
+
+---
+
 ## Project Architecture
 
 The project follows a clean, scalable and modern feature-driven folder structure (`core` & `features`):
