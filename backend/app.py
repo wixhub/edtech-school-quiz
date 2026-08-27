@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template_string
 from flask_cors import CORS
 import json
 import os
@@ -12,10 +12,60 @@ DATA_FILE = os.path.join(os.path.dirname(__file__), 'data', 'questions.json')
 
 @app.route('/')
 def home():
-    return jsonify({
-        "status": "online",
-        "message": "Welcome to the EdTech Quiz API! Use /api/quiz to get questions."
-    })
+    html_content = """
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EdTech Quiz API</title>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                background-color: #0f172a;
+                color: #f8fafc;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+            .card {
+                background: #1e293b;
+                padding: 2.5rem;
+                border-radius: 1rem;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+                text-align: center;
+                max-width: 400px;
+            }
+            h1 { color: #38bdf8; margin-bottom: 0.5rem; font-size: 1.5rem; }
+            p { color: #94a3b8; font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.5; }
+            a { color: #38bdf8; text-decoration: none; font-weight: 500; }
+            a:hover { text-decoration: underline; }
+            .badge {
+                display: inline-block;
+                background: #065f46;
+                color: #34d399;
+                padding: 0.25rem 0.75rem;
+                border-radius: 9999px;
+                font-size: 0.85rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="card">
+            <div><span class="badge">● Online</span></div>
+            <h1>EdTech Quiz API</h1>
+            <p>Backend service is up and running successfully.<br><br>
+               You can view the user interface of the application on the page <a href="https://edtech-quiz.pages.dev/" target="_blank">edtech-quiz.pages.dev</a>.
+            </p>
+        </div>
+    </body>
+    </html>
+    """
+    return render_template_string(html_content)
 
 def load_questions():
     """Load quiz questions from the JSON data file."""
