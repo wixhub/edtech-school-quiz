@@ -1,4 +1,4 @@
 export const environment = {
-  production: false,
-  apiUrl: 'http://127.0.0.1:5000/api/quiz',
+  production: true,
+  apiUrl: 'https://edtech-school-quiz.onrender.com/api/quiz',
 };
