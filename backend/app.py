@@ -36,7 +36,7 @@ def home():
                 border-radius: 1rem;
                 box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
                 text-align: center;
-                max-width: 400px;
+                max-width: 600px;
             }
             h1 { color: #38bdf8; margin-bottom: 0.5rem; font-size: 1.5rem; }
             p { color: #94a3b8; font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.5; }
