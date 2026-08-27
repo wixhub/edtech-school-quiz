@@ -10,6 +10,13 @@ CORS(app)  # Enable CORS for frontend communication
 # Path to the JSON file containing quiz questions
 DATA_FILE = os.path.join(os.path.dirname(__file__), 'data', 'questions.json')
 
+@app.route('/')
+def home():
+    return jsonify({
+        "status": "online",
+        "message": "Welcome to the EdTech Quiz API! Use /api/quiz to get questions."
+    })
+
 def load_questions():
     """Load quiz questions from the JSON data file."""
     if not os.path.exists(DATA_FILE):
