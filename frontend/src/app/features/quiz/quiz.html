@@ -1,0 +1,57 @@
+<div class="kid-quiz-wrapper">
+  <div class="quiz-card">
+    <header class="quiz-header">
+      <span class="emoji-badge">🌟</span>
+      <h1>EdTech School Quiz</h1>
+      <p>Интерактивные задания для детей и подростков 🚀</p>
+    </header>
+
+    @if (loading()) {
+      <div class="load-box">
+        <p>🎈 Секунду, вопросы загружаются...</p>
+      </div>
+    }
+
+    @if (errorMessage()) {
+      <div class="error-box">
+        <p>{{ errorMessage() }}</p>
+      </div>
+    }
+
+    @if (!loading() && !errorMessage()) {
+      @if (!quizSubmitted()) {
+        <div class="questions-container">
+          @for (q of questions(); track q.id; let i = $index) {
+            <div class="question-item">
+              <h3>🎯 Вопрос {{ i + 1 }}: {{ q.question }}</h3>
+              <div class="options-grid">
+                @for (opt of q.options; track opt; let optIdx = $index) {
+                  <button
+                    type="button"
+                    class="option-btn"
+                    [class.selected]="userAnswers()[q.id] === optIdx"
+                    (click)="selectOption(q.id, optIdx)"
+                  >
+                    {{ opt }}
+                  </button>
+                }
+              </div>
+            </div>
+          }
+
+          <button class="submit-btn" [disabled]="!hasAnswers()" (click)="submitQuiz()">
+            ✨ Проверить ответы!
+          </button>
+        </div>
+      } @else {
+        <div class="result-screen">
+          <h2>🎉 Тест пройден!</h2>
+          <div class="score-badge">
+            Ваш результат: <span>{{ scoreResult()?.score }}</span> из {{ scoreResult()?.total }}
+          </div>
+          <button class="retry-btn" (click)="resetQuiz()">🔄 Пройти ещё раз</button>
+        </div>
+      }
+    }
+  </div>
+</div>
